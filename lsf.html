@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head><meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+    <title>LSF</title>
+  <style>
+  <!--body {
+    margin:0;
+    padding:0;
+    border: 0;
+    height: 100%;
+    overflow: hidden; /*no scroll bar*/
+  }-->
+
+  canvas{
+    outline:0;
+    border:1px solid green;
+		background-color:black;
+	
+    image-rendering: optimizeSpeed;             // Older versions of FF
+    image-rendering: -moz-crisp-edges;          // FF 6.0+
+    image-rendering: -webkit-optimize-contrast; // Webkit
+                                                //  (Safari now, Chrome soon)
+    image-rendering: -o-crisp-edges;            // OS X & Windows Opera (12.02+)
+    image-rendering: optimize-contrast;         // Possible future browsers.
+    -ms-interpolation-mode: nearest-neighbor;   // IE
+	
+	imageSmoothingEnabled: false;
+}
+  </style>
+  
+  </head>
+  <body>
+	
+    <canvas id='c'></canvas>
+    <script src="game.js"></script>
+	
+  </body>
+</html>
