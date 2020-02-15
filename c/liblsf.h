@@ -16,3 +16,4 @@ void	dialog(char *str);
 // GAME
 void	display_map();
 void	display_ch(int chc, int chv[2][2]);
+void	display_cu(int cursor[2]);

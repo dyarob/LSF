@@ -1,6 +1,7 @@
 #include "liblsf.h"
 
 int	Y = 4;
+int	CU[2] = {0,0};
 
 void	hello_world() {
 
@@ -13,6 +14,8 @@ void	lsf_init() {
 
 	setlocale(LC_ALL, "");
 	initscr(); cbreak(); noecho();
+	nodelay(stdscr, TRUE);
+
 	addch('c');
 	move(2, 0);
 	refresh();
@@ -63,4 +66,14 @@ void	display_ch(int c, int ch[2][2]) {
 		move(5+ch[i][0], 50+ch[i][1]);
 		addch('C');
 		refresh(); }
+}
+
+void	display_cu(int cu[2]) {
+
+	move(6+CU[0],51+CU[1]);
+	addch(' ');
+	CU[0] = cu[0];
+	CU[1] = cu[1];
+	move(6+CU[0],51+CU[1]);
+	addch('<');
 }
