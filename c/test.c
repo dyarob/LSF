@@ -1,6 +1,14 @@
 #include "liblsf.h"
 #include <unistd.h>
 
+int	compare_cu(int cu[2], int c, int ch[2][2]) {
+
+	for (int i=0;i<c;++i)
+		if (cu[0]==ch[i][0]&&cu[1]==ch[i][1])
+			return 1;
+	return 0;
+}
+
 int	main(int ac, char **av) {
 
 	int	ch[2][2]={{1, 2}, {5, 6}};
@@ -18,6 +26,7 @@ int	main(int ac, char **av) {
 	while(1) {
 		while((c=getch())==ERR);
 		if (c=='q') break;
+		display_ch(2, ch);
 		switch (c) {
 		case 'h':
 			--cu[1];
@@ -36,6 +45,8 @@ int	main(int ac, char **av) {
 			display_cu(cu);
 			break;
 		}
+		if (compare_cu(cu, 2, ch))
+			dialog("char select");
 	}
 
 	lsf_end();

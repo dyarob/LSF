@@ -40,8 +40,9 @@ sleep(1);
 
 void	dialog(char *str) {
 
+	move(Y,0);
 	addstr(str);
-	move((Y+=2),0);
+	Y+=2;
 	refresh();
 sleep(1);
 }
@@ -63,7 +64,7 @@ void	display_map() {
 void	display_ch(int c, int ch[2][2]) {
 
 	for (int i=0;i<c;++i) {
-		move(5+ch[i][0], 50+ch[i][1]);
+		move(6+ch[i][0], 51+ch[i][1]);
 		addch('C');
 		refresh(); }
 }
