@@ -4,7 +4,8 @@ lib:
 	ranlib liblsf.a
 
 test:
-	gcc test.c -llsf -lncurses -L.
+	gcc test.c -llsf -lncurses -L. -o test.out
+	gcc test2.c -llsf -lncurses -L. -o test2.out
 
 clean:
 	rm -rf liblsf.o a.out

@@ -17,7 +17,7 @@ int	main(int ac, char **av) {
 	int	cu[2]={0,0};
 
 	lsf_init();
-	first_dialog();
+	dialog("Welcome to the console edition !");
 	dialog("This tutorial will guide you !");
 	dialog("First select a character (hjkl)\nq to quit");
 	display_map();
