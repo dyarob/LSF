@@ -2,7 +2,6 @@
 
 int	Y = 4;
 int	CU[2] = {0,0};
-int	SM_Y = 0, SM_X = 0;
 
 // FUNC
 void	lsf_init() {
@@ -46,21 +45,15 @@ void	display_map() {
 	refresh();
 }
 
-void	display_submap() {
-	int	sm_y = 5;
-	int	sm_x = 45;
-	int	sm_w = 60;
-	int	sm_h = 20;
-	SM_Y = 5;
-	SM_X = 45;
+void	display_submap(Submap sm) {
 
-	move(sm_y, sm_x);
-	for (int i=0;i<sm_w;++i) addch(95);
-	for (int y=sm_y+1;y<=sm_y+sm_h;++y) {
-		mvaddch(y, sm_x, 124);
-		mvaddch(y, sm_x+sm_w, 124); }
-	move(sm_y+sm_h, sm_x+1);
-	for (int i=0;i<sm_w-1;++i) addch(95);
+	move(sm.y, sm.x);
+	for (int i=0;i<sm.w;++i) addch(95);
+	for (int y=sm.y+1;y<=sm.y+sm.h;++y) {
+		mvaddch(y, sm.x, 124);
+		mvaddch(y, sm.x+sm.w, 124); }
+	move(sm.y+sm.h, sm.x+1);
+	for (int i=0;i<sm.w-1;++i) addch(95);
 	refresh();
 }
 
@@ -72,20 +65,20 @@ void	display_ch(int c, int ch[2][2]) {
 		refresh(); }
 }
 
-void	display_cu(int cu[2]) {
+void	display_cu(Submap sm, int cu[2]) {
 
-	move(6+CU[0],51+CU[1]);
+	move(sm.y+1+CU[0],sm.x+1+CU[1]);
 	addch(' ');
 	CU[0] = cu[0];
 	CU[1] = cu[1];
-	move(6+CU[0],51+CU[1]);
+	move(sm.y+1+CU[0],sm.x+1+CU[1]);
 	addch('<');
 }
 
-void	draw(int y, int x, Art a) {
+void	draw(Submap sm, int y, int x, Art a) {
 
-	move(SM_Y+y, SM_X+x);
+	move(sm.y+y, sm.x+x);
 	for (int i=0;i<a.h;i++) {
 		for (int j=0;j<a.w;j++) addch(a.art[i*a.w+j]);
-		move(SM_Y+y+i+1, SM_X+x); }
+		move(sm.y+y+i+1, sm.x+x); }
 }

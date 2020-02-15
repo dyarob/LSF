@@ -20,7 +20,8 @@ int	main(int ac, char **av) {
 	dialog("Welcome to the console edition !");
 	dialog("This tutorial will guide you !");
 	dialog("First select a character (hjkl)\nq to quit");
-	display_map();
+	Submap map = {5, 50, 50, 30};
+	display_submap(map);
 	display_ch(2, ch);
 
 	while(1) {
@@ -30,19 +31,19 @@ int	main(int ac, char **av) {
 		switch (c) {
 		case 'h':
 			--cu[1];
-			display_cu(cu);
+			display_cu(map, cu);
 			break;
 		case 'j':
 			++cu[0];
-			display_cu(cu);
+			display_cu(map, cu);
 			break;
 		case 'k':
 			--cu[0];
-			display_cu(cu);
+			display_cu(map, cu);
 			break;
 		case 'l':
 			++cu[1];
-			display_cu(cu);
+			display_cu(map, cu);
 			break;
 		}
 		if (compare_cu(cu, 2, ch))
