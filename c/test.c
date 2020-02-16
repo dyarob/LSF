@@ -1,5 +1,4 @@
 #include "liblsf.h"
-#include <unistd.h>
 
 int	compare_cu(int cu[2], int c, int ch[2][2]) {
 
