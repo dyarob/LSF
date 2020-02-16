@@ -21,6 +21,7 @@ void	dialog(char *str);
 // GAME
 void	display_map();
 void	display_submap(Submap sm);
+void	inventory(int c);
 void	display_ch(int chc, int chv[2][2]);
 void	display_cu(Submap sm, int cursor[2]);
 void	doodle(Submap sm, int y, int x, Art a);

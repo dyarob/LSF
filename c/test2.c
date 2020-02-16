@@ -56,7 +56,7 @@ int	interactions_count = 0;
 display_submap(cabbagefarm);
 draw_cabbages(cabbagefarm, cabbages, cabbage, cabbageripe, interactions_count);
 dialog("It's taking some time to grow.");
-dialog("Select a ripe one. (s)");
+dialog("Select a ripe one. (s)\n(w to exit submap)");
 display_cu(cabbagefarm, cu);
 char	c;
 while(1) {
@@ -70,11 +70,11 @@ while(1) {
 	case 'l': ++cu[1]; break;
 	case 's':
 		cabbage_count = collect(cabbages, cabbage, cu, interactions_count, cabbage_count);
-		dialog("Cabbage count:");printf("%d", cabbage_count);
 		break;
 	}
 	draw_cabbages(cabbagefarm, cabbages, cabbage, cabbageripe, interactions_count);
 	display_cu(cabbagefarm, cu);
+	inventory(cabbage_count);
 }
 lsf_end(); return 0;
 }

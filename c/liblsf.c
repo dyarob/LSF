@@ -57,6 +57,12 @@ void	display_submap(Submap sm) {
 	refresh();
 }
 
+void	inventory(int cabbage_count) {
+	move(2, 70);
+	addstr("Cabbages ");
+	printf("%d", cabbage_count);
+}
+
 void	display_ch(int c, int ch[2][2]) {
 
 	for (int i=0;i<c;++i) {
