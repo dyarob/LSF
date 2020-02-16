@@ -21,11 +21,20 @@ return Cabbages;
 }
 
 void	draw_cabbages(Submap cf, Cabbage **cb, Art c, Art cr, int ic) {
-for (int i=0;cb[i];i++) {
+for (int i=0;cb[i];i++)
 	if (cb[i]->tilripe > ic)
 		doodle(cf, cb[i]->y, cb[i]->x, c);
 	else doodle(cf, cb[i]->y, cb[i]->x, cr);
 }
+
+int	collect(Cabbage **cb, Art c, int cu[2], int ic, int cc) {
+for (int i=0;cb[i];i++)
+	if (cu[0]>cb[i]->y&&cu[0]<=cb[i]->y+c.h
+		&&cu[1]>cb[i]->x&&cu[1]<=cb[i]->x+c.w) {
+		cb[i]->tilripe = ic + 30;
+		return ++cc;
+	}
+return cc;
 }
 
 int	main(int ac, char **av) {
@@ -40,13 +49,14 @@ Cabbage	**cabbages = cabbages_init();
 Art	cabbagesprout = {2, 4, "     ff "};
 Art	cabbage = {2, 4, " ff kkkk"};
 Art	cabbageripe = {2, 4, "ffff kk "};
+int	cabbage_count = 0;
 int	cu[2] = {0,0};
 int	interactions_count = 0;
 
 display_submap(cabbagefarm);
 draw_cabbages(cabbagefarm, cabbages, cabbage, cabbageripe, interactions_count);
 dialog("It's taking some time to grow.");
-dialog("Select one.");
+dialog("Select a ripe one. (s)");
 display_cu(cabbagefarm, cu);
 char	c;
 while(1) {
@@ -54,17 +64,13 @@ while(1) {
 	interactions_count++;
 	if (c=='q') break;
 	switch (c) {
-	case 'h':
-		--cu[1];
-		break;
-	case 'j':
-		++cu[0];
-		break;
-	case 'k':
-		--cu[0];
-		break;
-	case 'l':
-		++cu[1];
+	case 'h': --cu[1]; break;
+	case 'j': ++cu[0]; break;
+	case 'k': --cu[0]; break;
+	case 'l': ++cu[1]; break;
+	case 's':
+		cabbage_count = collect(cabbages, cabbage, cu, interactions_count, cabbage_count);
+		dialog("Cabbage count:");printf("%d", cabbage_count);
 		break;
 	}
 	draw_cabbages(cabbagefarm, cabbages, cabbage, cabbageripe, interactions_count);
