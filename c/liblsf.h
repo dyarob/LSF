@@ -23,4 +23,4 @@ void	display_map();
 void	display_submap(Submap sm);
 void	display_ch(int chc, int chv[2][2]);
 void	display_cu(Submap sm, int cursor[2]);
-void	draw(Submap sm, int y, int x, Art a);
+void	doodle(Submap sm, int y, int x, Art a);

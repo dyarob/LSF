@@ -75,7 +75,7 @@ void	display_cu(Submap sm, int cu[2]) {
 	addch('<');
 }
 
-void	draw(Submap sm, int y, int x, Art a) {
+void	doodle(Submap sm, int y, int x, Art a) {
 
 	move(sm.y+y, sm.x+x);
 	for (int i=0;i<a.h;i++) {
