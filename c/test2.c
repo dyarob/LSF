@@ -9,7 +9,7 @@ int	tilripe;
 Cabbage	**cabbages_init() {
 Cabbage	**Cabbages = (Cabbage **)malloc(sizeof(Cabbage*)*6+1);
 for (int i=0;i<6;i++)
-	Cabbages[i] = (Cabbage	*)malloc(sizeof(Cabbage));
+	Cabbages[i] = (Cabbage *)malloc(sizeof(Cabbage));
 Cabbages[6] = NULL;
 Cabbages[0]->y = 4; Cabbages[0]->x = 7; Cabbages[0]->tilripe = 10;
 Cabbages[1]->y = 4; Cabbages[1]->x = 12; Cabbages[1]->tilripe = 8;
@@ -46,9 +46,9 @@ strcpy(names[0], "Lullaby");
 strcpy(names[1], "Melody");
 Submap	cabbagefarm = {5, 45, 60, 20};
 Cabbage	**cabbages = cabbages_init();
-Art	cabbagesprout = {2, 4, "     ff "};
-Art	cabbage = {2, 4, " ff kkkk"};
-Art	cabbageripe = {2, 4, "ffff kk "};
+Art	cabbagesprout = {4, 2, "     ff "};
+Art	cabbage = {4, 2, " ff kkkk"};
+Art	cabbageripe = {4, 2, "ffff kk "};
 int	cabbage_count = 0;
 int	cu[2] = {0,0};
 int	interactions_count = 0;

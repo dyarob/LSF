@@ -31,6 +31,12 @@ void	dialog(char *str) {
 	sleep(1);
 }
 
+void	inventory(int cabbage_count) {
+	move(2, 80);
+	addstr("Cabbages ");
+	printf("%d", cabbage_count);
+}
+
 
 // GAME
 void	display_map() {
@@ -55,12 +61,6 @@ void	display_submap(Submap sm) {
 	move(sm.y+sm.h, sm.x+1);
 	for (int i=0;i<sm.w-1;++i) addch(95);
 	refresh();
-}
-
-void	inventory(int cabbage_count) {
-	move(2, 70);
-	addstr("Cabbages ");
-	printf("%d", cabbage_count);
 }
 
 void	display_ch(int c, int ch[2][2]) {
